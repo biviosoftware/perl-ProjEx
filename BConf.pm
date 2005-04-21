@@ -82,11 +82,12 @@ sub merge_overrides {
 #TODO:		'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
 	    },
 	    maps => {
-		Action => ['ProjEx::Action],
+#TODO:		Action => ['ProjEx::Action'],
 		Facade => ['ProjEx::Facade'],
-		Model => ['ProjEx::Model'],
+#TODO:		HTMLWidget => ['ProjEx::HTMLWidget'],
+#TODO:		Model => ['ProjEx::Model'],
 		TestLanguage => ['ProjEx::Test'],
-		Type => ['ProjEx::Type'],
+#TODO:		Type => ['ProjEx::Type'],
 	    },
 	}),
 	'Bivio::UI::Facade' => {

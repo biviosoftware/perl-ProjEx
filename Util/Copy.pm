@@ -93,9 +93,9 @@ sub to {
 	wanted => sub {
 	    my($src) = $File::Find::name;
 	    next if $_ eq '.';
-	    (my $dst = $src) =~ s{(ProjEx|Bivio/PetShop)}{$root}g;
+	    (my $dst = $src) =~ s{(?:ProjEx|Bivio/PetShop)}{$root}g;
 	    my($kb) = '';
-	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|Copy.pm|projex-copy|.*\~$|petshop-)}) {
+	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log|httpd.*conf|Copy.pm|projex-copy|.*\~$|petshop-)} || -l $src) {
 		$File::Find::prune = 1;
 		return;
 	    }
@@ -114,6 +114,7 @@ sub to {
 		Bivio::IO::File->write($dst, $data);
 	    }
 	    push(@$cvs, "cvs add $kb $dst")
+		unless grep(/ \Q$dst\E$/, @$cvs);
 	    return;
 	},
 	no_chdir => 1,
@@ -125,7 +126,7 @@ ${root}::BConf->dev(8000, {
 });
 EOF
     symlink('.', "$root/files/$uri");
-    foreach my $c (@$cvs) {
+    foreach my $c (sort(@$cvs)) {
 	$self->piped_exec($c);
     }
     return;
