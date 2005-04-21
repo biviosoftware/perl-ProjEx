@@ -1,0 +1,46 @@
+#!perl -w
+# Copyright (c) 2005 bivio Software, Inc.  All Rights Reserved.
+# $Id$
+use strict;
+
+=head1 NAME
+
+projex-copy - calls ProjEx::Util::Copy
+
+=head1 RELEASE SCOPE
+
+ProjEx
+
+=head1 SYNOPSIS
+
+projex-copy [options] command [args...]
+
+=head1 DESCRIPTION
+
+See L<ProjEx::Util::Copy|ProjEx::Util::Copy>
+
+=cut
+
+#=IMPORTS
+use ProjEx::Util::Copy;
+
+#=VARIABLES
+ProjEx::Util::Copy->main(@ARGV);
+
+=head1 SEE ALSO
+
+ProjEx::Util::Copy
+
+=head1 COPYRIGHT
+
+Copyright (c) 2005 bivio Software, Inc.  All Rights Reserved.
+
+=head1 VERSION
+
+$Id$
+
+=cut
+
+#Local Variables:
+#mode:cperl
+#End:

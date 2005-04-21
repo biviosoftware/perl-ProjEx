@@ -1,0 +1,25 @@
+# Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
+# $Id$
+view_declare(qw(base_content));
+view_put(
+    base_title => '',
+    base_styles => '',
+);
+view_class_map('HTMLWidget');
+view_shortcuts('ProjEx::ViewShortcuts');
+view_main(Page({
+    head => Join([
+        Title({values => [
+	    vs_site_name(),
+	    view_widget_value('base_title'),
+	]}),
+        FirstFocus(),
+    ]),
+    string_font => 'page_text',
+    style => Style({other_styles => view_widget_value('base_styles')}),
+    body => Join([
+	view_widget_value('base_content'),
+	'<p>',
+	Link(Image('bivio_power'), 'http://www.bivio.biz'),
+    ]),
+}));
