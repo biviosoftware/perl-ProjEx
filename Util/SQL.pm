@@ -30,7 +30,16 @@ use Bivio::Util::SQL;
 
 =head1 DESCRIPTION
 
-C<ProjEx::Util::SQL>
+C<ProjEx::Util::SQL> are utilities for initializing and managing the database.
+
+How to create the database.  As root:
+
+    su - postgres -c 'createuser --no-createdb --no-adduser --pwprompt projexuser; createdb --owner projexuser projex'
+
+As you:
+
+    cd files/ddl
+    projex-sql create_db
 
 =cut
 
