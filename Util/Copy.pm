@@ -122,7 +122,10 @@ sub to {
     Bivio::IO::File->write("$ENV{HOME}/bconf/$pfx.bconf", <<"EOF");
 use strict;
 use ${root}::BConf;
-${root}::BConf->dev(8000, {
+${root}::BConf->dev(8888, {
+    'Bivio::UI::Facade' => {
+	local_file_root => '$ENV{HOME}/src/perl/${root}/files/',
+    },
 });
 EOF
     symlink('.', "$root/files/$uri");
