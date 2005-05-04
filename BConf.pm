@@ -80,6 +80,8 @@ sub merge_overrides {
 		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
 		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
 #TODO:		'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
+		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
+		'Bivio::UI::HTML::FormErrors' => 'ProjEx::Delegate::FormErrors',
 	    },
 	    maps => {
 #TODO:		Action => ['ProjEx::Action'],
