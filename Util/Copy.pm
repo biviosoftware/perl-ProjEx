@@ -51,7 +51,7 @@ sub USAGE {
     return <<'EOF';
 usage: projex-copy [options] command [args...]
 commands:
-    to RootPkg pfx legal-name [facade-uri] -- creates a new project
+    to RootPkg pfx legal-name [[facade-uri] [prod-domain] -- creates a new project
 EOF
 }
 
@@ -67,26 +67,33 @@ use File::Find ();
 
 =for html <a name="to"></a>
 
-=head2 to(string root, string pfx, string legal, string uri)
+=head2 to(string root, string pfx, string legal, string uri, string domain)
 
 Copy files to I<root>, substituting values passed in to copies of the Projex/*
 files.  I<pfx> is the abbreviated prefix for commands.  I<legal> is the legal
 name, e.g. bivio Software, Inc.  I<uri> defaults to I<root> in all lower-case.
+I<domain> defaults to I<uri>.com.
 
 =cut
 
 sub to {
-    my($self, $root, $pfx, $legal, $uri) = @_;
+    my($self, $root, $pfx, $legal, $uri, $domain) = @_;
     $self->usage_error($legal, ': expecting legal name which contains a space')
 	unless $legal =~ /\s/;
     $self->usage_error($root, ': root must begin with upper case')
 	unless $root =~ /^[A-Z]\w+$/;
     $self->usage_error($pfx, ': prefix must be all lower case')
 	unless $pfx =~ /^[a-z0-9]+$/;
+    $uri ||= lc($root);
+    $domain ||= "$uri.com";
+    $self->usage_error($uri, ': prefix must be all lower case, word')
+	unless $uri =~ /^[-a-z0-9]+$/;
+    $self->usage_error($domain, ': invalid domain name')
+	unless (Bivio::Type->get_instance('DomainName')
+		->from_literal($domain))[0];
     Bivio::IO::File->chdir("$ENV{HOME}/src/perl");
     $self->piped_exec('cvs update -Pd ProjEx Bivio/PetShop/files/ddl');
     Bivio::IO::File->mkdir_p($root);
-    $uri ||= lc($root);
     my($year) = Bivio::Type::DateTime->now_as_year;
     my($cvs) = [];
     File::Find::find({
@@ -110,6 +117,7 @@ sub to {
 		    $$data =~ s/FACADE-URI/$uri/g;
 		    $$data =~ s/COPYRIGHT-HOLDER/$legal/g;
 		    $$data =~ s/COPYRIGHT-YEAR/$year/g;
+		    $$data =~ s/PROD-DOMAIN/$domain/g;
 		}
 		Bivio::IO::File->write($dst, $data);
 	    }
