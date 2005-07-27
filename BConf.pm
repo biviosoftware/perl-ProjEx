@@ -69,17 +69,13 @@ Base configuration.
 sub merge_overrides {
     my($proto, $host) = @_;
     return {
-	'Bivio::Ext::DBI' => {
-	    database => 'projex',
-	    user => 'projexuser',
-	    password => 'projexpass',
-#TODO:	    connection => 'Bivio::SQL::Connection::Postgres',
-	},
+	$proto->default_merge_overrides(ProjEx => projex => 'COPYRIGHT-HOLDER');
 	$proto->merge_class_loader({
 	    delegates => {
 		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
 		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
 #TODO:		'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
+#TODO:		'Bivio::Auth::RealmType' => 'Bivio::Delegate::RealmType',
 		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
 		'Bivio::UI::HTML::FormErrors' => 'ProjEx::Delegate::FormErrors',
 	    },
@@ -105,21 +101,6 @@ sub merge_overrides {
 	    critical_list => [
 	    ],
         }),
-	'Bivio::Test::Language::HTTP' => {
-	    home_page_uri => 'http://FACADE-URI.bivio.biz',
-	},
-	'Bivio::Test::Util' => {
-	    nightly_output_dir => '/home/FACADE-URI-testsuite',
-	    nightly_cvs_dir => 'perl/ProjEx',
-	},
-	'Bivio::Util::Release' => {
-	    projects => [
-		[ProjEx => projex => 'COPYRIGHT-HOLDER'],
-	    ],
-	},
-        'Bivio::Delegate::Cookie' => {
-            tag => uc('projex'),
-	},
     };
 }
 
