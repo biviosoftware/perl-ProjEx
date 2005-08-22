@@ -69,37 +69,37 @@ Base configuration.
 sub merge_overrides {
     my($proto, $host) = @_;
     return {
-	$proto->default_merge_overrides(ProjEx => projex => 'COPYRIGHT-HOLDER');
-	$proto->merge_class_loader({
-	    delegates => {
-		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
-		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
-#TODO:		'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
-#TODO:		'Bivio::Auth::RealmType' => 'Bivio::Delegate::RealmType',
-		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
-		'Bivio::UI::HTML::FormErrors' => 'ProjEx::Delegate::FormErrors',
-	    },
-	    maps => {
-#TODO:		Action => ['ProjEx::Action'],
-		Facade => ['ProjEx::Facade'],
-#TODO:		HTMLWidget => ['ProjEx::HTMLWidget'],
-#TODO:		Model => ['ProjEx::Model'],
-		TestLanguage => ['ProjEx::Test'],
-#TODO:		Type => ['ProjEx::Type'],
-	    },
-	}),
-	'Bivio::UI::Facade' => {
+        $proto->default_merge_overrides(ProjEx => projex => 'COPYRIGHT-HOLDER'),
+        $proto->merge_class_loader({
+            delegates => {
+	      'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
+	      'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
+#TODO:	      'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
+#TODO:	      'Bivio::Auth::RealmType' => 'Bivio::Delegate::RealmType',
+	      'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
+	      'Bivio::UI::HTML::FormErrors' => 'ProjEx::Delegate::FormErrors',
+	  },
+	  maps => {
+#TODO:	      Action => ['ProjEx::Action'],
+	      Facade => ['ProjEx::Facade'],
+#TODO:	      HTMLWidget => ['ProjEx::HTMLWidget'],
+#TODO:	      Model => ['ProjEx::Model'],
+	      TestLanguage => ['ProjEx::Test'],
+#TODO:	      Type => ['ProjEx::Type'],
+	  },
+        }),
+        'Bivio::UI::Facade' => {
 	    default => 'ProjEx',
 	    http_suffix => 'PROD-DOMAIN',
 	    mail_host => 'PROD-DOMAIN',
-	},
+        },
         $proto->merge_http_log({
             ignore_list => [
             ],
-	    error_list => [
-	    ],
-	    critical_list => [
-	    ],
+	  error_list => [
+	  ],
+	  critical_list => [
+	  ],
         }),
     };
 }
@@ -108,7 +108,7 @@ sub merge_overrides {
 
 =head1 COPYRIGHT
 
-Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
+opyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 
 =head1 VERSION
 
