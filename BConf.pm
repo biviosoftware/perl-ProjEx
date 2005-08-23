@@ -1,3 +1,4 @@
+
 # Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 # $Id$
 package ProjEx::BConf;
@@ -74,7 +75,7 @@ sub merge_overrides {
             delegates => {
 		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
 		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
-#TODO:	      	'Bivio::Auth::Support' => 'ProjEx::Delegate::SimpleAuthSupport',
+#TODO:	      	'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
 #TODO:	      	'Bivio::Auth::RealmType' => 'ProjEx::Delegate::RealmType',
 		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
 		'Bivio::UI::HTML::FormErrors' => 'ProjEx::Delegate::FormErrors',
