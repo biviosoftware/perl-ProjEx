@@ -13,7 +13,6 @@ view_main(Page({
 	    vs_site_name(),
 	    view_widget_value('base_title'),
 	]}),
-        FirstFocus(),
     ]),
     string_font => 'page_text',
     style => Style({other_styles => view_widget_value('base_styles')}),
