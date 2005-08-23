@@ -1,7 +1,7 @@
 -- Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 -- $Id$
 --
--- Constraints & Indexes for PetShop Models
+-- Constraints & Indexes for ProjEx Models
 --
 -- * This file is sorted alphabetically by table
 -- * The only "NOT NULL" values are for things which are optional.

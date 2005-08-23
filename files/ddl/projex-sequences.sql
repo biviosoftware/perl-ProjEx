@@ -1,8 +1,7 @@
 -- Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 -- $Id$
 --
--- Sequences for bOP PetShop Models
---
+-- Sequences for ProjEx Models
 --
 -- * All sequences are unique for all sites.
 --

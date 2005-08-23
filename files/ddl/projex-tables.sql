@@ -1,7 +1,7 @@
 -- Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 -- $Id$
 --
--- Data Definition Language for bOP PetShop Models
+-- Data Definition Language for ProjEx Models
 --
 -- * Tables are named after their models, but have underscores where
 --   the case changes.  
