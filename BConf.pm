@@ -78,7 +78,6 @@ sub merge_overrides {
 #TODO:	      	'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
 #TODO:	      	'Bivio::Auth::RealmType' => 'ProjEx::Delegate::RealmType',
 		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
-		'Bivio::UI::HTML::FormErrors' => 'ProjEx::Delegate::FormErrors',
 	    },
 	    maps => {
 #TODO:	      	Action => ['ProjEx::Action'],
