@@ -113,5 +113,5 @@ td {}
 }
 .warning {
   font-weight: italic;
-  color: #990001; /* must be different from .error */
+  color: #990000;
 }
