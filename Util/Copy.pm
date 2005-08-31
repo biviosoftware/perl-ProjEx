@@ -90,7 +90,7 @@ sub to {
 	unless $uri =~ /^[-a-z0-9]+$/;
     $self->usage_error($domain, ': invalid domain name')
 	unless (Bivio::Type->get_instance('DomainName')
-		->from_literal($domain))[0];
+	->from_literal($domain))[0];
     Bivio::IO::File->chdir("$ENV{HOME}/src/perl");
     $self->piped_exec('cvs update -Pd ProjEx Bivio/PetShop/files/ddl');
     Bivio::IO::File->mkdir_p($root);
