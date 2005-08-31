@@ -1,4 +1,3 @@
-
 # Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 # $Id$
 package ProjEx::BConf;
@@ -83,16 +82,19 @@ sub merge_overrides {
 #TODO:	      	Action => ['ProjEx::Action'],
 		Facade => ['ProjEx::Facade'],
 #TODO:	      	HTMLWidget => ['ProjEx::HTMLWidget'],
-#TODO:	      	Model => ['ProjEx::Model'],
+	      	Model => ['ProjEx::Model'],
 		TestLanguage => ['ProjEx::Test'],
 #TODO:	      	Type => ['ProjEx::Type'],
 	    },
         }),
         'Bivio::UI::Facade' => {
 	    default => 'ProjEx',
-	    http_suffix => 'PROD-DOMAIN',
+	    http_suffix => 'www.PROD-DOMAIN',
 	    mail_host => 'PROD-DOMAIN',
         },
+	'Bivio::Test::HTMLParser::Forms' => {
+	    error_color => 'error',
+	},
         $proto->merge_http_log({
             ignore_list => [
             ],
