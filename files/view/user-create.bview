@@ -16,6 +16,6 @@ view_put(
 	    UserCreateForm.Address.state
 	    UserCreateForm.Address.zip
 	}],
-	Link(vs_text('link', 'USER_CREATE'), 'USER_CREATE'),
+	Link(vs_text('link', 'LOGIN'), 'LOGIN'),
     ),
 );
