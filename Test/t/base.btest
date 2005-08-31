@@ -2,4 +2,8 @@
 # $Id$
 test_setup('ProjEx');
 home_page();
-verify_text('class="hello"');
+follow_link('Login');
+follow_link('Register');
+test_deviance();
+submit_form('Register');
+

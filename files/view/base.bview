@@ -1,25 +1,70 @@
 # Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
 # $Id$
-view_declare(qw(base_content));
-view_put(
-    base_title => '',
-    base_styles => '',
-);
 view_class_map('HTMLWidget');
 view_shortcuts('ProjEx::ViewShortcuts');
-view_main(Page({
-    head => Join([
-        Title({values => [
-	    vs_site_name(),
-	    view_widget_value('base_title'),
-	]}),
+view_declare(qw(base_content));
+view_put(
+    base_title => vs_text([sub {"base_title.$_[1]"}, ['task_id', '->get_name']]),
+    base_menu => Join([
+	Link('Home', '/'),
+	Image('point11', 'none'),
+	If(['auth_user'],
+	   map(
+	       vs_link(Join([$_]), {task_id => uc($_), no_context => 1}),
+	       'Logout', 'Login')),
     ]),
-    string_font => 'page_text',
-    style => Style({other_styles => view_widget_value('base_styles')}),
-    body => Join([
-	view_widget_value('base_content'),
-	'<p>',
-	Link(Image('bivio_power'), 'http://www.bivio.biz'),
-	'</p>',
+);
+view_main(Page(
+    Join([
+        Title([vs_site_name(), view_widget_value('base_title')]),
     ]),
-}));
+    Grid([[
+	Link(Image('home_logo', undef, {class => 'base_logo'}), '/', {
+	    cell_width => '30%',
+	}),
+	Join([view_widget_value('base_title')], {
+	    cell_class => 'base_heading',
+	    cell_align => 'center',
+	    cell_width => '40%',
+	}),
+	Join([view_widget_value('base_menu')], {
+	    cell_class => 'base_menu',
+	    cell_align => 'ne',
+	    cell_width => '30%',
+	}),
+   ], [
+	vs_acknowledgement(),
+    ], [
+	Join([view_widget_value('base_content')], {
+	    cell_class => 'base_content',
+	    cell_colspan => 3,
+	}),
+    ], [
+	Link('back to top', '#top', 'base_footer_top', {
+	    cell_width => '30%',
+	    cell_align => 'nw',
+	}),
+	Join([
+	    Link('Home', '/'),
+	    Image('point7', 'none'),
+	    vs_link('Register', 'USER_CREATE'),
+	], {
+	    cell_class => 'base_footer_menu',
+	    cell_width => '40%',
+	    cell_align => 'n',
+	}),
+	Join([
+		'Copyright &copy; ',
+		Bivio::Type::DateTime->now_as_year,
+		' COPYRIGHT-HOLDER<br />All rights reserved.<br />',
+		Link('Developed by bivio', 'http://www.bivio.biz'),
+	    ], {
+		cell_class => 'base_footer_copyright',
+		cell_width => '30%',
+		cell_align => 'ne',
+	    }),
+    ]], {
+	class => 'base_grid',
+    }),
+    {style => StyleSheet('/f/base.css')},
+));

@@ -48,12 +48,41 @@ sub get_delegate_info {
     my($proto) = @_;
     return $proto->merge_task_info(shift->SUPER::get_delegate_info(@_), [
 	[qw(
+	    MY_SITE
+	    4
+	    GENERAL
+	    ANY_USER
+	    Action.ClientRedirect->execute_next
+	    next=SITE_ROOT
+	)],
+	[qw(
 	    LOGIN
 	    501
 	    GENERAL
 	    ANYBODY
-	    Action.ClientRedirect->execute_next
-	    next=SITE_ROOT
+	    Action.UserLogout
+	    Model.UserLoginForm
+            View.login
+	    next=MY_SITE
+	)],
+	[qw(
+	    USER_CREATE
+	    502
+	    GENERAL
+	    ANYBODY
+	    Action.UserLogout
+	    Model.UserCreateForm
+	    View.user-create
+	    next=MY_SITE
+	)],
+	[qw(
+	    LOGOUT
+	    503
+	    GENERAL
+	    ANYBODY
+	    Action.UserLogout
+            Action.ClientRedirect->execute_next
+            next=SITE_ROOT
 	)],
     ]);
 }

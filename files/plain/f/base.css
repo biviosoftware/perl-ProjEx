@@ -1,0 +1,118 @@
+/* Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved. */
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: #006666;
+}
+a:hover {
+  color: #cc9900;
+  text-decoration: underline;
+}
+body {
+  font-family: Verdana, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; 
+  background-color: white;
+  color: black;
+  margin: 0px;
+  padding: 1em 1ex 0 1em;
+}
+img, table {
+  border-style: none;
+}
+th {
+  font-weight: bold;
+}
+td {}
+.acknowledgement {
+  margin: 0 0 2em 0;
+  width: 50em;
+}
+.base_content {
+  padding: 1ex 5% 1ex 5%;
+  border-bottom: 1px solid #CCCCCC;
+  text-align: left;
+}
+.base_footer_top {
+  font-size: 80%;
+  text-align: left;
+  white-space: nowrap;
+}
+.base_footer_menu {
+  font-size: 80%;
+  text-align: center;
+  white-space: nowrap;
+}
+.base_footer_menu img {
+  margin: 0 5px 2px 5px;
+}
+.base_footer_copyright {
+  font-size: 80%;
+  text-align: right;
+  white-space: nowrap;
+}
+.base_grid {
+  font-size: medium;
+}
+.base_heading {
+  font-size: 150%;
+  text-align: center;
+}
+.base_menu {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.base_menu img {
+  margin: 0 10px 0 10px;
+}
+.home_logo {
+  padding: 0px 0px 0px 10pt;
+  color: white;
+}
+.error {
+  font-weight: bold;
+  color: #990000;
+}
+.form_field_checkbox {
+  padding-left: 3em;
+}
+.form_field_description {
+  margin: .3em 0 .7em 0;
+  width: 30em;
+  font-size: 90%;
+  line-height: 120%;
+}
+.form_field_error {
+  font-size: 80%;
+  color: #990000;
+  font-weight: bold;
+}
+.form_field_error_label {
+  color: #990000;
+  text-align: right;
+  font-style: italic;
+  padding-right: .5em;
+}
+.form_field_input {
+  padding-bottom: 1em;
+}
+.form_field_label {
+  vertical-align: top;
+  text-align: right;
+  font-weight: bold;
+  padding-right: .5em;
+}
+.indent {
+  text-indent: 2em;
+  margin: 2pt 0 2pt 0;
+}
+.separator {
+  width: 470px;
+  text-align: left;
+  font-weight: normal;
+  color: #006666;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  border-top: 1px solid #ffd151;
+}
+.warning {
+  font-weight: italic;
+  color: #990001; /* must be different from .error */
+}

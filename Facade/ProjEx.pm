@@ -11,7 +11,7 @@ ProjEx::Facade::ProjEx - main production and default facade
 
 =head1 RELEASE SCOPE
 
-bOP
+RELEASE-SCOPE
 
 =head1 SYNOPSIS
 
@@ -41,49 +41,48 @@ my($_SELF) = __PACKAGE__->new({
     clone => undef,
     is_production => 1,
     uri => 'FACADE-URI',
-    http_host => 'PROD-DOMAIN',
+    http_host => 'www.PROD-DOMAIN',
     mail_host => 'PROD-DOMAIN',
     Color => [
-	[page_link => -1],
-	[['page_vlink', 'page_alink'] => -1],
-	[page_link_hover => -1],
-	[page_text => 0],
-	[page_bg => 0xFFFFFF],
-	[page_heading => -1],
-	[error => 0x993300],
-	[warning => 0x993301],
-	[table_heading => -1],
-	[table_even_row_bg => 0xF3F3F3],
-	[table_odd_row_bg => -1],
-	[table_separator => 0],
-	[summary_line => 0x66CC66],
+	[[qw(
+	    table_separator
+	    table_odd_row_bg
+	    table_even_row_bg
+	    page_alink
+	    page_link
+	    page_link_hover
+	    page_bg
+	    page_text
+	    page_vlink
+	    summary_line
+	    error
+	    warning
+ 	)] => -1],
     ],
     Font => [
-	[default => [
-	    'family=verdana,arial,helvetica,geneva,sunsans-regular,sans-serif',
-	    'size=small',
-	]],
-	[error => ['color=error', 'bold']],
-	[form_field_error => ['color=error', 'smaller', 'bold']],
-	[form_field_error_label => ['color=error', 'italic']],
-	[page_heading => ['bold']],
-	[table_heading => ['color=table_heading', 'bold']],
-	[warning => ['color=warning', 'bold']],
-	[[qw(
-		checkbox
-		form_field_label
-		form_submit
-		input_field
-		mailto
-		number_cell
-		page_text
-		radio
-		search_field
-		table_cell
-	)] => []],
-
-	# Add your own here
-	[hello => ['class=hello']],
+	map([$_ => [qq{class=$_}]], qw{
+	    error
+	    form_field_error
+	    form_field_error_label
+	    form_field_label
+	    warning
+	}),
+	[[qw{
+	    default
+	    checkbox
+	    form_field_checkbox
+	    form_field_description
+	    form_submit
+	    input_field
+	    mailto
+	    number_cell
+	    page_heading
+	    page_text
+	    radio
+	    search_field
+	    table_cell
+	    table_heading
+	}] => []],
     ],
     FormError => [
 	[NULL => 'You must supply a value for vs_fe("label");.'],
@@ -95,16 +94,17 @@ my($_SELF) = __PACKAGE__->new({
     Task => [
 	[CLUB_HOME => '?'],
 	[DEFAULT_ERROR_REDIRECT_FORBIDDEN => undef],
-	[FAVICON_ICO => '/favicon.ico'],
+	[FAVICON_ICO => 'favicon.ico'],
 	[FORBIDDEN => undef],
-	[LOCAL_FILE_PLAIN => ['/i/*']],
-	[LOGIN => undef],
-#TODO:	    [LOGOUT => 'pub/logout'],
-	[MY_SITE => undef],
+	[LOCAL_FILE_PLAIN => ['i/*', 'f/*']],
+	[LOGIN => 'pub/login'],
+	[LOGOUT => 'pub/logout'],
+	[MY_SITE => 'my-site'],
 	[MY_CLUB_SITE => undef],
 	[SHELL_UTIL => undef],
-	[SITE_ROOT => '/*'],
+	[SITE_ROOT => '*'],
 	[USER_HOME => '?'],
+	[USER_CREATE => 'pub/register'],
     ],
     Text => [
 	[support_email => 'support'],
@@ -116,10 +116,48 @@ my($_SELF) = __PACKAGE__->new({
 	[none => ''],
 	[Image_alt => [
 	    dot => '',
-	    bivio_power => 'Operated by bivio Software, Inc.',
+	    home_logo => 'COPYRIGHT-HOLDER',
 	]],
 	[ok_button => '   OK   '],
 	[cancel_button => ' Cancel '],
+	[['Email.email', 'login'] => 'Email Address'],
+	[password => 'Password'],
+	[confirm_password => 'Re-enter Password'],
+	[display_name => 'Your Full Name'],
+	[UserLoginForm => [
+	    ok_button => 'Login',
+	]],
+	[first_name => 'First Name'],
+	[middle_name => 'Middle Name'],
+	[street1 => 'Street Line 1'],
+	[street2 => 'Street Line 2'],
+	[city => 'City'],
+	[state => 'State'],
+	[zip => 'Zip'],
+	[country => 'Country'],
+	[UserCreateForm => [
+	    ok_button => 'Register',
+	]],
+	map({
+	    my($t, $v) = @$_;
+	    map(["$_->[0].$t" => $_->[1]], @$v);
+	}
+	    [field_description => [
+		['UserCreateForm.confirm_password' => q{Enter your password again.}],
+	    ]],
+	),
+	[base_title => [
+	    LOGIN => 'Login',
+	    USER_CREATE => 'Register',
+	    SITE_ROOT => '',
+	]],
+	[link => [
+	    LOGIN => 'Already registered?  Click here to login.',
+	    USER_CREATE => 'Not registered? Click here to register.',
+	]],
+	[separator => [
+	    address => 'Address (optional)',
+	]],
     ],
 });
 
