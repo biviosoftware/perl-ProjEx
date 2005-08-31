@@ -152,8 +152,8 @@ my($_SELF) = __PACKAGE__->new({
 	    SITE_ROOT => '',
 	]],
 	[link => [
-	    LOGIN => 'Not registered? Click here to register.',
-	    USER_CREATE => 'Already registered?  Click here to login.',
+	    LOGIN => 'Already registered?  Click here to login.',
+	    USER_CREATE => 'Not registered? Click here to register.',
 	]],
 	[separator => [
 	    address => 'Address (optional)',
