@@ -105,6 +105,7 @@ my($_SELF) = __PACKAGE__->new({
 	[SITE_ROOT => '*'],
 	[USER_HOME => '?'],
 	[USER_CREATE => 'pub/register'],
+        [ROBOTS_TXT => '/robots.txt'],
     ],
     Text => [
 	[support_email => 'support'],
