@@ -83,6 +83,7 @@ sub merge_overrides {
 		Facade => ['ProjEx::Facade'],
 #TODO:	      	HTMLWidget => ['ProjEx::HTMLWidget'],
 	      	Model => ['ProjEx::Model'],
+		ShellUtil => ['ProjEx::Util'],
 		TestLanguage => ['ProjEx::Test'],
 #TODO:	      	Type => ['ProjEx::Type'],
 	    },
