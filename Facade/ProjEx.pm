@@ -118,6 +118,8 @@ my($_SELF) = __PACKAGE__->new({
 	[Image_alt => [
 	    dot => '',
 	    home_logo => 'COPYRIGHT-HOLDER',
+	    sort_up => 'This column sorted in descending order',
+	    sort_down => 'This column sorted in ascending order',
 	]],
 	[ok_button => '   OK   '],
 	[cancel_button => ' Cancel '],
