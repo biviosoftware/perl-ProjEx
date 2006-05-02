@@ -103,7 +103,7 @@ sub to {
 	    (my $dst = $src) =~ s{(?:ProjEx|Bivio/PetShop)}{$root}g;
 	    $dst =~ s{projex}{$pfx}g;
 	    my($kb) = '';
-	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log|httpd.*conf|Copy.pm|projex-copy|.*\~$|petshop-)} || -l $src) {
+	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log/|httpd.*conf|Copy.pm|projex-copy|.*\~$|petshop-)} || -l $src) {
 		$File::Find::prune = 1;
 		return;
 	    }

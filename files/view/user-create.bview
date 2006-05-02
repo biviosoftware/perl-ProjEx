@@ -15,7 +15,8 @@ view_put(
 	    UserCreateForm.Address.city
 	    UserCreateForm.Address.state
 	    UserCreateForm.Address.zip
-	}],
+	},
 	Link(vs_text('link', 'LOGIN'), 'LOGIN'),
+        ],
     ),
 );

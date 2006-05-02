@@ -74,7 +74,7 @@ sub merge_overrides {
             delegates => {
 		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
 		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
-#TODO:	      	'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
+	      	'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
 #TODO:	      	'Bivio::Auth::RealmType' => 'ProjEx::Delegate::RealmType',
 		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
 	    },
@@ -95,6 +95,7 @@ sub merge_overrides {
         },
 	'Bivio::Test::HTMLParser::Forms' => {
 	    error_color => 'error',
+	    error_class => 'form_field_error',
 	},
         $proto->merge_http_log({
             ignore_list => [
