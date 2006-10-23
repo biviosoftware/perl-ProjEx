@@ -46,7 +46,7 @@ Returns the task declarations.
 
 sub get_delegate_info {
     my($proto) = @_;
-    return $proto->merge_task_info(shift->SUPER::get_delegate_info(@_), [
+    return $proto->merge_task_info(qw(base), => [
 	[qw(
 	    MY_SITE
 	    4
