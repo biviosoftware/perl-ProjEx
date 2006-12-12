@@ -2,47 +2,9 @@
 # $Id$
 package ProjEx::Delegate::FormErrors;
 use strict;
-$ProjEx::Delegate::FormErrors::VERSION = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
-$_ = $ProjEx::Delegate::FormErrors::VERSION;
+use base ('Bivio::Delegate::SimpleFormErrors');
 
-=head1 NAME
-
-ProjEx::Delegate::FormErrors - additional type errors
-
-=head1 RELEASE SCOPE
-
-ProjEx
-
-=head1 SYNOPSIS
-
-    use ProjEx::Delegate::FormErrors;
-
-=cut
-
-use Bivio::Delegate::SimpleFormErrors;
-@ProjEx::Delegate::FormErrors::ISA = ('Bivio::Delegate::SimpleFormErrors');
-
-=head1 DESCRIPTION
-
-C<ProjEx::Delegate::FormErrors>
-
-=cut
-
-#=IMPORTS
-
-#=VARIABLES
-
-=head1 METHODS
-
-=cut
-
-=for html <a name="get_delegate_info"></a>
-
-=head2 static get_delegate_info() : string_ref
-
-Returns the form error definitions.
-
-=cut
+our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub get_delegate_info {
     my($proto) = @_;
@@ -57,17 +19,5 @@ Please remember that passwords are case-sensitive, i.e.
 %%
 EOF
 };
-
-#=PRIVATE METHODS
-
-=head1 COPYRIGHT
-
-Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
-
-=head1 VERSION
-
-$Id$
-
-=cut
 
 1;

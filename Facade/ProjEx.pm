@@ -2,41 +2,10 @@
 # $Id$
 package ProjEx::Facade::ProjEx;
 use strict;
-$ProjEx::Facade::ProjEx::VERSION = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
-$_ = $ProjEx::Facade::ProjEx::VERSION;
+use base ('Bivio::UI::Facade');
 
-=head1 NAME
+our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
-ProjEx::Facade::ProjEx - main production and default facade
-
-=head1 RELEASE SCOPE
-
-RELEASE-SCOPE
-
-=head1 SYNOPSIS
-
-    use ProjEx::Facade::ProjEx;
-
-=cut
-
-=head1 EXTENDS
-
-L<Bivio::UI::Facade>
-
-=cut
-
-use Bivio::UI::Facade;
-@ProjEx::Facade::ProjEx::ISA = ('Bivio::UI::Facade');
-
-=head1 DESCRIPTION
-
-C<ProjEx::Facade::ProjEx> is the main production and default Facade.
-
-=cut
-
-#=IMPORTS
-
-#=VARIABLES
 my($_SELF) = __PACKAGE__->new({
     clone => undef,
     is_production => 1,
@@ -163,21 +132,5 @@ my($_SELF) = __PACKAGE__->new({
 	]],
     ],
 });
-
-=head1 METHODS
-
-=cut
-
-#=PRIVATE METHODS
-
-=head1 COPYRIGHT
-
-Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
-
-=head1 VERSION
-
-$Id$
-
-=cut
 
 1;

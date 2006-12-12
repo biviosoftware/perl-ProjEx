@@ -2,45 +2,6 @@
 # Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All Rights Reserved.
 # $Id$
 use strict;
-
-=head1 NAME
-
-projex-sql - calls ProjEx::Util::SQL
-
-=head1 RELEASE SCOPE
-
-ProjEx
-
-=head1 SYNOPSIS
-
-projex-sql [options] command [args...]
-
-=head1 DESCRIPTION
-
-See L<ProjEx::Util::SQL|ProjEx::Util::SQL>
-
-=cut
-
-#=IMPORTS
 use ProjEx::Util::SQL;
 
-#=VARIABLES
 ProjEx::Util::SQL->main(@ARGV);
-
-=head1 SEE ALSO
-
-ProjEx::Util::SQL
-
-=head1 COPYRIGHT
-
-Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All Rights Reserved.
-
-=head1 VERSION
-
-$Id$
-
-=cut
-
-#Local Variables:
-#mode:cperl
-#End:

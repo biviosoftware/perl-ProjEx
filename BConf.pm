@@ -2,69 +2,15 @@
 # $Id$
 package ProjEx::BConf;
 use strict;
-$ProjEx::BConf::VERSION = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
-$_ = $ProjEx::BConf::VERSION;
+use base 'Bivio::BConf';
 
-=head1 NAME
-
-ProjEx::BConf - default configuration
-
-=head1 RELEASE SCOPE
-
-RELEASE-SCOPE
-
-=head1 SYNOPSIS
-
-    use ProjEx::BConf;
-
-=cut
-
-=head1 EXTENDS
-
-L<Bivio::BConf>
-
-=cut
-
-use Bivio::BConf;
-@ProjEx::BConf::ISA = ('Bivio::BConf');
-
-=head1 DESCRIPTION
-
-Configuration.
-
-=cut
-
-#=IMPORTS
-# NOTE: Only import the bare minimum, because this class must be
-# initialized just after Bivio::IO::Config.
-
-#=VARIABLES
-
-=head1 METHODS
-
-=cut
-
-=for html <a name="dev_overrides"></a>
-
-=head2 dev_overrides(string pwd, string host, string user, int http_port) : hash_ref
-
-Development environment configuration.
-
-=cut
+our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub dev_overrides {
     my($proto, $pwd, $host, $user, $http_port) = @_;
     return {
     };
 }
-
-=for html <a name="merge_overrides"></a>
-
-=head2 merge_overrides(string host) : hash_ref
-
-Base configuration.
-
-=cut
 
 sub merge_overrides {
     my($proto, $host) = @_;
@@ -107,17 +53,5 @@ sub merge_overrides {
         }),
     };
 }
-
-#=PRIVATE METHODS
-
-=head1 COPYRIGHT
-
-opyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
-
-=head1 VERSION
-
-$Id$
-
-=cut
 
 1;

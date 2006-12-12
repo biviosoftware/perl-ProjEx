@@ -2,50 +2,11 @@
 # $Id$
 package ProjEx::Util::Copy;
 use strict;
-$ProjEx::Util::Copy::VERSION = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
-$_ = $ProjEx::Util::Copy::VERSION;
+use base('Bivio::ShellUtil');
+use Bivio::IO::File;
+use File::Find ();
 
-=head1 NAME
-
-ProjEx::Util::Copy - copy files to another project
-
-=head1 RELEASE SCOPE
-
-ProjEx
-
-=head1 SYNOPSIS
-
-    use ProjEx::Util::Copy;
-
-=cut
-
-=head1 EXTENDS
-
-L<Bivio::ShellUtil>
-
-=cut
-
-use Bivio::ShellUtil;
-@ProjEx::Util::Copy::ISA = ('Bivio::ShellUtil');
-
-=head1 DESCRIPTION
-
-C<ProjEx::Util::Copy>
-
-=cut
-
-
-=head1 CONSTANTS
-
-=cut
-
-=for html <a name="USAGE"></a>
-
-=head2 USAGE : string
-
-See code.
-
-=cut
+our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub USAGE {
     return <<'EOF';
@@ -54,27 +15,6 @@ commands:
     to RootPkg pfx legal-name [[facade-uri] [prod-domain] -- creates a new project
 EOF
 }
-
-#=IMPORTS
-use Bivio::IO::File;
-use File::Find ();
-
-#=VARIABLES
-
-=head1 METHODS
-
-=cut
-
-=for html <a name="to"></a>
-
-=head2 to(string root, string pfx, string legal, string uri, string domain)
-
-Copy files to I<root>, substituting values passed in to copies of the Projex/*
-files.  I<pfx> is the abbreviated prefix for commands.  I<legal> is the legal
-name, e.g. bivio Software, Inc.  I<uri> defaults to I<root> in all lower-case.
-I<domain> defaults to I<uri>.com.
-
-=cut
 
 sub to {
     my($self, $root, $pfx, $legal, $uri, $domain) = @_;
@@ -143,17 +83,5 @@ EOF
     }
     return;
 }
-
-#=PRIVATE SUBROUTINES
-
-=head1 COPYRIGHT
-
-Copyright (c) 2005 bivio Software, Inc.  All Rights Reserved.
-
-=head1 VERSION
-
-$Id$
-
-=cut
 
 1;
