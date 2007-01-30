@@ -12,10 +12,11 @@ sub ddl_files {
 
 sub initialize_test_data {
     my($self) = @_;
+    my($req) = $self->get_request;
     $self->create_test_user('buser');
     $self->create_test_user('root');
     $self->new_other('RealmRole')->make_super_user;
-    $self->set_realm(undef);
+    $req->set_realm(undef);
     $self->model(ForumForm => {
         'RealmOwner.display_name' => 'Unit Test Forum',
 	'RealmOwner.name' => 'bforum',
