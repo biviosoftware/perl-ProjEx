@@ -2,8 +2,8 @@
 # $Id$
 test_setup('ProjEx');
 home_page();
-follow_link('Login');
 follow_link('Register');
+follow_link('Login');
 test_deviance();
 submit_form('Register');
 

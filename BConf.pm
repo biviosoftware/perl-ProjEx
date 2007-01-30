@@ -28,10 +28,11 @@ sub merge_overrides {
 #TODO:	      	Action => ['ProjEx::Action'],
 		Facade => ['ProjEx::Facade'],
 #TODO:	      	HTMLWidget => ['ProjEx::HTMLWidget'],
-	      	Model => ['ProjEx::Model'],
+#TODO:	      	Model => ['ProjEx::Model'],
 		ShellUtil => ['ProjEx::Util'],
 		TestLanguage => ['ProjEx::Test'],
 #TODO:	      	Type => ['ProjEx::Type'],
+		View => ['ProjEx::View'],
 	    },
         }),
         'Bivio::UI::Facade' => {
@@ -40,7 +41,6 @@ sub merge_overrides {
 	    mail_host => 'PROD-DOMAIN',
         },
 	'Bivio::Test::HTMLParser::Forms' => {
-	    error_color => 'error',
 	    error_class => 'form_field_error',
 	},
         $proto->merge_http_log({

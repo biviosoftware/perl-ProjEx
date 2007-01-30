@@ -1,117 +1,617 @@
 /* Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved. */
-a:link, a:visited, a:hover, a:active {
+form .sep, a:link, a:visited, a:active, .head2 .sub_menu_title, .head2 .title {
+  color:#444444;
+}
+a:link, a:visited, a:active {
   text-decoration: none;
-  color: #006666;
 }
 a:hover {
-  color: #cc9900;
+  color: #777777;
   text-decoration: underline;
 }
 body {
-  font-family: Verdana, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif; 
+  font-family: Verdana, Arial, Helvetica, Geneva, SunSans-Regular, sans-serif;
   background-color: white;
   color: black;
-  margin: 0px;
-  padding: 1em 1ex 0 1em;
+  margin: 1em;
+  font-size: small;
+  min-width: 60em;
+}
+code {
+  font-size: 120%;
+}
+iframe {
+  border-style: none;
 }
 img, table {
   border-style: none;
 }
+p {
+  margin: 0;
+}
 th {
   font-weight: bold;
+  padding: .5em;
 }
-td {}
 .acknowledgement {
-  margin: 0 0 2em 0;
-  width: 50em;
-}
-.base_content {
-  padding: 1ex 5% 1ex 5%;
-  border-bottom: 1px solid #CCCCCC;
-  text-align: left;
-}
-.base_footer_top {
-  font-size: 80%;
-  text-align: left;
-  white-space: nowrap;
-}
-.base_footer_menu {
-  font-size: 80%;
+  margin: auto;
   text-align: center;
-  white-space: nowrap;
+  margin-bottom: 2ex;
 }
-.base_footer_menu img {
-  margin: 0 5px 2px 5px;
+.acknowledgement .text {
+  border: 2px solid #666666;
+  padding: .5em;
 }
-.base_footer_copyright {
-  font-size: 80%;
-  text-align: right;
-  white-space: nowrap;
+.trailer {
+  margin: 1ex 0;
 }
-.base_grid {
-  font-size: medium;
-}
-.base_heading {
-  font-size: 150%;
-  text-align: center;
-}
-.base_menu {
-  font-weight: bold;
-  white-space: nowrap;
-}
-.base_menu img {
-  margin: 0 10px 0 10px;
-}
-.home_logo {
-  padding: 0px 0px 0px 10pt;
-}
-.error {
-  font-weight: bold;
-  color: #990000;
-}
-.form_field_checkbox {
+form .check {
   padding-left: 3em;
+  text-align: center;
 }
-.form_field_description {
-  margin: .3em 0 .7em 0;
+.check {
+  text-align: center;
+}
+.acknowledgement, .err_title, .field_err, form .desc {
   width: 30em;
-  font-size: 90%;
-  line-height: 120%;
 }
-.form_field_error {
-  font-size: 80%;
+form .desc, .byline {
+  margin: .1em 0 0 0;
+  font-size: 85%;
+  color: #666666;
+}
+.field_err, .label_err, .err_title, .err, .required {
   color: #990000;
+  vertical-align: top;
+}
+.err {
   font-weight: bold;
 }
-.form_field_error_label {
-  color: #990000;
-  text-align: right;
-  font-style: italic;
-  padding-right: .5em;
+.err_title {
+  font-weight: bold;
+  margin-bottom: 2ex;
+  text-align: center;
 }
-.form_field_input {
+.field_err {
+  font-weight: normal;
+  font-size: 80%;
+}
+form .label, form .field {
   padding-bottom: 1em;
 }
-.form_field_label {
-  vertical-align: top;
+form .footer {
+  font-size: 85%;
+  font-style: italic;
+  margin-bottom: 1.0em;
+}
+.label_ok, .label_err, .label {
   text-align: right;
+  padding-right: .2em;
+}
+.label_ok {
+  vertical-align: top;
+}
+.label_err {
+  vertical-align: middle;
+  font-style: italic;
+}
+.list td, .paged_list td {
+  padding: .5em;
+}
+div.prose, .form_prose, .list_prose, .paged_list .empty {
+  text-align: left;
+  width: 40em;
+  padding-bottom: .5ex;
+}
+.head,
+.foot {
+  position: relative;
+  width: 100%;
+}
+.head {
+  background: url(/i/logo.png) top left no-repeat;
+  margin-bottom: 2ex;
+}
+.foot {
+  font-size: 80%;
+  margin-top: 2ex;
+  padding-top: .3ex;
+  padding-bottom: 7ex;
+  border-top: 1px solid #666666;
+}
+.foot1, .foot2, .foot3,
+.head1, .head2, .head3 {
+  position: absolute;
+}
+.head1,
+.foot1 {
+  left: 0%;
+  width: 25%;
+}
+.head2,
+.foot2 {
+  left: 25%;
+  text-align: center;
+  width: 50%;
+}
+.head3, .foot3 {
+  left: 75%;
+  text-align: right;
+  width: 25%;
+}
+.head3 .search input {
+  vertical-align: middle;
+}
+.search .go {
+  margin-left: .5em;
+}
+.head3 {
   font-weight: bold;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+.head, .head1, .head1 a.logo {
+  height: 102px;
+}
+.head1 a.logo {
+  display: block;
+}
+.head1 a.su {
+  background-color: green;
+  overflow: hidden;
+  display: block;
+}
+.head1 .su .body {
+  font-size: 120%;
+  color: white;
+  text-align: center;
+  white-space: normal;
+  vertical-align: middle;
+  clear: both;
+}
+.head2 .task_menu, .head2 .sub_menu_title, .head2 .title {
+  line-height: 3.5ex;
+}
+.head2 .task_menu {
+  border-bottom: 1px solid #666666;
+  text-transform: uppercase;
+}
+.head2 .task_menu a.want_sep {
+  background: url(/i/point11.gif) left no-repeat;
+  padding-left: 15px;
+  margin-left: 5px;
+}
+.head2 .sub_menu a.want_sep {
+  background: url(/i/point7.gif) left no-repeat;
+  padding-left: 12px;
+  margin-left: 4px;
+}
+div.alphabetical_chooser {
+  display: inline;
+}
+.head2 .task_menu .selected, .head2 .sub_menu .selected, .alphabetical_chooser .selected {
+  font-weight: bold;
+}
+.head2 .sub_menu_title, .head2 .title {
+  font-weight: bold;
+}
+.head2 .sub_menu_title {
   padding-right: .5em;
 }
-.indent {
-  text-indent: 2em;
-  margin: 2pt 0 2pt 0;
+.head2 .sub_menu_title, .head2 .sub_menu, .head2 .title {
+  display: inline;
+  margin-top: .1ex;
+  bottom: 0;
 }
-.separator {
-  width: 470px;
+.head2 .sub_menu_title, .head2 .sub_menu {
+  font-size: 90%;
+}
+.task_menu a {
+  white-space: nowrap;
+}
+.foot2 .task_menu, .tools {
+  text-transform: lowercase;
+}
+.foot2 .task_menu a.want_sep,
+.top .task_menu a.want_sep,
+.bottom .task_menu a.want_sep,
+.pager .next, .pager .list,
+.alphabetical_chooser a.all,
+.tools span.want_sep {
+  background: url(/i/point7.gif) left no-repeat;
+  padding-left: 12px;
+  margin-left: 4px;
+}
+.alphabetical_chooser a.all {
+  text-transform: lowercase;
+}
+.alphabetical_chooser a.want_sep {
+  margin-left: .2em;
+}
+.tools {
+  font-size: 85%;
+}
+.top .tools {
+  text-align: right;
+}
+.tools div.sep {
+  background: url(/i/point7.gif) left center no-repeat;
+  padding-left: 12px;
+  margin-left: 4px;
+  display: inline;
+}
+.prose p,
+.wiki .prose {
+  text-indent: 2em;
+  margin: 1ex 0 1ex 0;
+}
+td.long_actions {
+  width: 15em;
+  white-space: normal;
+}
+td.long_text {
+  width: 30em;
+  white-space: normal;
+}
+form .sep {
   text-align: left;
   font-weight: normal;
-  color: #006666;
-  margin-top: 1em;
-  padding-bottom: 1em;
-  border-top: 1px solid #ffd151;
+  padding: .5ex 0 1.5ex 0;
+  border-top: 1px solid #666666;
 }
-.warning {
-  font-weight: italic;
+.warn {
+  font-style: italic;
   color: #990000;
 }
+.standard_submit {
+  text-align: center;
+}
+form .submit {
+  margin: .5em;
+}
+.empty_list {
+  text-align: center;
+  padding-bottom: 1ex;
+}
+pre .text {
+  font-family: "Courier New", Courier, monospace, fixed;
+}
+.top .task_menu, .top .pager {
+  text-align: right;
+  white-space: nowrap;
+  display: inline;
+}
+.bottom .pager, .bottom .task_menu {
+  text-align: left;
+  white-space: nowrap;
+  display: inline;
+}
+.off {
+  color: #999999;
+}
+.mail_msg .header {
+  width: 100%;
+  padding-bottom: 1ex;
+}
+.mail_msg .line {
+  clear: both;
+  padding-bottom: .3ex;
+}
+.mail_msg .label {
+  text-align: right;
+  float: left;
+  width: 4em;
+  padding-right: .5em;
+}
+.mail_msg .field {
+  font-weight: bold;
+  text-align: left;
+}
+.mail_msg {
+  padding-bottom: 1ex;
+}
+.mail_msg .part {
+  padding-bottom: 1ex;
+}
+.tree_list {
+  margin: 0;
+}
+.tree_list .node {
+  white-space: nowrap;
+}
+.tree_list .node .name {
+  padding-left: 4px;
+  white-space: nowrap;
+}
+.tree_list .node .sp {
+  padding-left: 20px;
+}
+.tree_list td {
+  padding: .3ex .8em;
+}
+.even {
+  background-color: #EEEEEE;
+}
+.odd {
+}
+div.content {
+  padding-top: 1ex;
+  overflow: hidden;
+}
+div.content .body {
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+}
+.topic, .byline, .byline2  {
+  font-weight: bold;
+  text-align: left;
+}
+.paged_detail table {
+  padding-top: .5em;
+}
+.paged_detail td {
+  padding-bottom: 1em;
+}
+.cal_title, .cal_location, .cal_datetime {
+  vertical-align: top;
+}
+.cal_datetime {
+  white-space: nowrap;
+}
+.byline, .byline2 {
+  white-space: nowrap;
+}
+.top_left {
+  background: url(/i/top_left.gif) top left no-repeat;
+  float: left;
+}
+.top_right {
+  background: url(/i/top_right.gif) top right no-repeat;
+  float: right;
+}
+.bottom {
+  clear: both;
+}
+.bottom_left {
+  background: url(/i/bottom_left.gif) bottom left no-repeat;
+  float: left;
+}
+.bottom_right {
+  background: url(/i/bottom_right.gif) bottom right no-repeat;
+  float: right;
+}
+.top_left, .top_right, .bottom_right, .bottom_left {
+  width: 2px;
+  height: 2px;
+}
+p.prose {
+  text-indent: 2em;
+  margin: 1ex 0 1ex 0;
+}
+.paged_list, .paged_detail, .top {
+  padding-right: 20em;
+}
+div.wiki {
+  padding-top: .5ex;
+  padding-bottom: .5ex;
+}
+.wiki .paged_list, .wiki .paged_detail {
+  padding-right: 0;
+}
+.help_wiki {
+  background-color: #CCCCCC;
+  margin-left: 2em;
+  float: left;
+  position: relative;
+  margin-right: -100%;
+  width: 18em;
+  right: 20em;
+}
+.help_wiki .body .body {
+  text-align: left;
+  margin: .5ex 0 .5ex 0;
+  font-size: 85%;
+  padding-right: .5em;
+  padding-left: .5em;
+}
+.help_wiki .body .header {
+  padding-top: .5ex;
+  padding-bottom: .5ex;
+  text-align: center;
+  font-weight: bold;
+  font-size: 120%;
+}
+.help_wiki .body .footer {
+  padding-top: .5ex;
+  padding-bottom: .5ex;
+  text-align: center;
+}
+.start_page {
+  padding: .5em;
+  padding-top: .5ex;
+}
+.start_page .right_col .empty_list {
+  font-style: italic;
+}
+.start_page .right_col h3 {
+  text-align: center;
+  margin-bottom: .5ex;
+}
+.start_page .right_col .long_text {
+  width: auto;
+}
+.start_page .right_col table {
+  width: 100%;
+}
+.start_page .right_col {
+  width: 30em;
+  float: right;
+  margin: 0;
+  padding-left: 1em;
+}
+.start_page .right_col th {
+  white-space: nowrap;
+}
+.start_page .even,
+.start_page .odd {
+  background-color: white;
+}
+.start_page .calendar .cal_location,
+.start_page .calendar .cal_desc,
+.start_page .calendar .cal_actions,
+.start_page .updates .forum_area {
+  display: none;
+}
+.start_page .updates .last_update {
+  width: 10em;
+}
+.start_page .calendar th,
+.start_page .updates th {
+  text-align: left;
+}
+.start_page .intro {
+  width: 30em;
+}
+.start_page .intro .contact {
+  float: right;
+  font-weight: bold;
+}
+.start_page .intro .contact div {
+  margin-bottom: .5ex;
+}
+.start_page .intro h4 {
+  margin-bottom: .5ex;
+}
+.start_page .people .name {
+  font-weight: bold;
+  margin-bottom: .5ex;
+}
+.start_page .people .title {
+  font-style: italic;
+}
+.start_page .featured_items {
+  width: 30em;
+  font-weight: bold;
+}
+.start_page .featured_items h3 {
+  margin-bottom: .7ex;
+}
+.start_page .featured_items hr {
+  width: 90%;
+}
+.blog .list {
+  border-right: 1px dashed gray;
+}
+.blog .private, .blog .public {
+  margin: 0 0 1em 0;
+  padding: 0 1em 1em 1em;
+/*  border-bottom: 1px dashed gray;*/
+}
+.blog .header {
+  position: relative;
+}
+.blog .title {
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+.blog .status {
+  width: 100%;
+  font-size: 85%;
+  text-align: right;
+  padding: .3em;
+  padding-right: .5em;
+  margin-bottom: .5em;
+}
+.blog .private .status {
+  background-color: #888888;
+  color: yellow;
+}
+.blog .public .status {
+  background-color: #AAAAAA;
+  color: white;
+}
+.blog .byline2 {
+  font-weight: normal;                 
+  font-style: italic;
+  text-align: right;
+  font-size: 85%;
+  color: gray;
+}
+.blog .title {
+  font-size: 100%;
+}
+.blog .private .body {
+  font-color: yellow;
+}
+.blog .sidebar .title {
+  font-size: 120%;
+}
+.blog .sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.blog .sidebar li {
+  padding-top: .5em;
+}
+.blog .sidebar .feed {
+  padding-bottom: 1em;
+  padding-right: 20px;
+  text-align: right;
+}
+.month_selection td {
+  padding-left: .5em;
+}
+.month_calendar td {
+  width: 14%;
+  vertical-align: top;
+  border: 1px solid #FFFFFF;
+  padding: .3em;
+}
+.month_calendar .day_of_week {
+  padding-bottom: .5em;
+  background-color: #C8C8C8;
+  text-align: center;
+}
+.month_calendar .date_this_month, .month_calendar .date_other_month {
+  height: 6em;
+  background-color: #EEEEEE;
+}
+.month_calendar .date_other_month {
+  background-color: #E6E6E6;
+}
+.month_calendar .date_other_month {
+  color: gray;
+}
+.month_calendar .day_of_month {
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+.month_calendar .event {
+  font-size: 85%;
+  padding-left: 20px;
+  text-align: left;
+  line-height: 16px;
+}
+.tuple .part {
+  padding-top: 2ex;
+}
+.blog {
+  padding-right: 25em;
+  min-width: 25em;        
+}
+.blog .list, .blog .sidebar  {
+  position: relative;
+  float: left;
+}
+.blog .list {
+  width: 100%;
+  padding: 0 1em;
+  margin: 0 1em;
+}
+.blog .sidebar {
+  width: 20em;
+  margin-right: -100%;
+}
+  
