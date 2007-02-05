@@ -32,7 +32,7 @@ sub merge_overrides {
 		ShellUtil => ['ProjEx::Util'],
 		TestLanguage => ['ProjEx::Test'],
 #TODO:	      	Type => ['ProjEx::Type'],
-#TODO:		View => ['ProjEx::View'],
+		View => ['ProjEx::View'],
 	    },
         }),
         'Bivio::UI::Facade' => {
