@@ -1,3 +1,5 @@
+# Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All rights reserved.
+# $Id$
 package ProjEx::View::Base;
 use strict;
 use Bivio::Base 'Bivio::UI::XHTML::View::Base';
