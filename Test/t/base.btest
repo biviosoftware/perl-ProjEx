@@ -2,8 +2,20 @@
 # $Id$
 test_setup('ProjEx');
 home_page();
+verify_no_link('Login');
 follow_link('Register');
-follow_link('Login');
-test_deviance();
-submit_form('Register');
+my($e) = generate_local_email(test_name() . $$);
+submit_form(Register => {qr{email}i => $e});
+visit_uri(verify_local_mail($e, 'register') =~ /(http:.+\?.+)/m);
+submit_form(Update => {
+    qr{^New} => 'password',
+    qr{^Re-enter} => 'password',
+});
+follow_link(qr{logout}i);
+follow_link(qr{login}i);
+submit_form(Login => {
+    qr{email}i => $e,
+    qr{password}i => 'password',
+});
+verify_text('Here is the first paragraph');
 
