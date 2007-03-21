@@ -13,12 +13,6 @@ my($_SELF) = __PACKAGE__->new({
     Text => [
 	[site_name => q{COPYRIGHT-HOLDER}],
 	[site_copyright => q{COPYRIGHT-HOLDER}],
-	[prose => [
-	    hm_index => <<'EOF',
-P('Here is the first paragraph of text which will not be indented. But it will go on and on...');
-P_prose('This is a second paragraph which is indented of text which WILL be indented.  This is just some more text to demonstrate the indent.');
-EOF
-	]],
     ],
 });
 
