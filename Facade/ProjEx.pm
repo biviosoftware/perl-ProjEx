@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::Facade::ProjEx;
 use strict;
-use base 'Bivio::UI::FacadeBase';
+use Bivio::Base 'Bivio::UI::FacadeBase';
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 

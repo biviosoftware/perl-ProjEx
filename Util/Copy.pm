@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::Util::Copy;
 use strict;
-use base('Bivio::ShellUtil');
+use Bivio::Base 'Bivio::ShellUtil';
 use Bivio::IO::File;
 use File::Find ();
 

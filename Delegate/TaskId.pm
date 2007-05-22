@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::Delegate::TaskId;
 use strict;
-use base 'Bivio::Delegate::TaskId';
+use Bivio::Base 'Bivio::Delegate::TaskId';
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 

@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::Util::SQL;
 use strict;
-use base('Bivio::Util::SQL');
+use Bivio::Base 'Bivio::Util::SQL';
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
