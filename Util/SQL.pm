@@ -4,6 +4,8 @@ package ProjEx::Util::SQL;
 use strict;
 use Bivio::Base 'Bivio::Util::SQL';
 
+# su - postgres -c 'createuser --no-createdb --no-adduser --pwprompt projexuser; createdb --owner projexuser projex'
+
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub ddl_files {
