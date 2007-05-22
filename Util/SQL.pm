@@ -5,6 +5,8 @@ use strict;
 use Bivio::Base 'Bivio::Util::SQL';
 
 # su - postgres -c 'createuser --no-createdb --no-adduser --pwprompt projexuser; createdb --owner projexuser projex'
+# b_projex; cd files/ddl; ln -s ../../../Bivio/PetShop/files/ddl/bOP-tables.sql bOP-tables.sql; ln -s ../../../Bivio/PetShop/files/ddl/bOP-constraints.sql bOP-constraints.sql; ln -s ../../../Bivio/PetShop/files/ddl/bOP-sequences.sql bOP-sequences.sql
+# perl -w ../../Util/projex-sql create_test_db
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
