@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::View::SiteRoot;
 use strict;
-use Bivio::Base 'Bivio::UI::XHTML::View::SiteRoot';
+use Bivio::Base 'Bivio::UI::View::SiteRoot';
 use Bivio::UI::ViewLanguageAUTOLOAD;
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
