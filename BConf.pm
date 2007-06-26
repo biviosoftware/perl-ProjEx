@@ -43,6 +43,9 @@ sub merge_overrides {
 	'Bivio::Test::HTMLParser::Forms' => {
 	    error_class => 'form_field_error',
 	},
+	'Bivio::Biz::Model::MailReceiveDispatchForm' => {
+	    ignore_dashes_in_recipient => 1,
+	},
         $proto->merge_http_log({
             ignore_list => [
             ],
