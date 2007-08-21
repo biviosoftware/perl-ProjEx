@@ -16,11 +16,17 @@ sub ddl_files {
 }
 
 sub initialize_db {
-    return shift->call_super_before(\@_, sub {shift->new_other('SiteForum')->init});
+    return shift->call_super_before(\@_, sub {
+        shift->new_other('SiteForum')->init;
+	return;
+    });
 }
 
 sub initialize_test_data {
-    return shift->call_super_before(\@_, sub {shift->new_other('TestUser')->init});
+    return shift->call_super_before(\@_, sub {
+        shift->new_other('TestUser')->init;
+	return;
+    });
 }
 
 1;
