@@ -39,7 +39,7 @@ sub merge_overrides {
 	    mail_host => 'PROD-DOMAIN',
         },
 	'Bivio::Test::HTMLParser::Forms' => {
-	    error_class => 'form_field_error',
+	    error_class => 'field_err',
 	},
 	'Bivio::Biz::Model::MailReceiveDispatchForm' => {
 	    ignore_dashes_in_recipient => 1,
