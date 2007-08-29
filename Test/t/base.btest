@@ -13,9 +13,16 @@ submit_form(Update => {
 });
 follow_link(qr{logout}i);
 follow_link(qr{login}i);
+save_excursion(sub {
+    test_deviance('not found');
+    submit_form(Login => {
+	qr{email}i => 'no_such_email@nowhere.com',
+	qr{password}i => 'password',
+    });
+    test_conformance();
+});
 submit_form(Login => {
     qr{email}i => $e,
     qr{password}i => 'password',
 });
 verify_text('Here is the first paragraph');
-
