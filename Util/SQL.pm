@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::Util::SQL;
 use strict;
-use Bivio::Base 'Bivio::Util::SQL';
+use Bivio::Base 'ShellUtil';
 
 # export BCONF=~/bconf/projex.bconf
 # cd files/ddl
