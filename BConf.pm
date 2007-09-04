@@ -14,13 +14,12 @@ sub dev_overrides {
 
 sub merge_overrides {
     my($proto, $host) = @_;
-    return {
-        $proto->default_merge_overrides(ProjEx => projex => 'COPYRIGHT-HOLDER'),
-        $proto->merge_class_loader({
-            delegates => {
+    return Bivio::IO::Config->merge_list({
+	$proto->merge_class_loader({
+	    delegates => {
 		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
 		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
-	      	'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
+		'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
 		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
 	    },
 	    maps => {
@@ -32,27 +31,32 @@ sub merge_overrides {
 		Type => ['ProjEx::Type'],
 		View => ['ProjEx::View'],
 	    },
-        }),
-        'Bivio::UI::Facade' => {
+	}),
+	'Bivio::UI::Facade' => {
 	    default => 'ProjEx',
 	    http_suffix => 'www.PROD-DOMAIN',
 	    mail_host => 'PROD-DOMAIN',
-        },
+	},
+	'Bivio::Test::Language::HTTP' => {
+	    deprecated_text_patterns => 0,
+	},
 	'Bivio::Test::HTMLParser::Forms' => {
 	    error_class => 'field_err',
 	},
 	'Bivio::Biz::Model::MailReceiveDispatchForm' => {
 	    ignore_dashes_in_recipient => 1,
 	},
-        $proto->merge_http_log({
-            ignore_list => [
-            ],
+	$proto->merge_http_log({
+	    ignore_list => [
+	    ],
 	    error_list => [
 	    ],
 	    critical_list => [
 	    ],
-        }),
-    };
+	}),
+    }, {
+	$proto->default_merge_overrides(ProjEx => projex => 'COPYRIGHT-HOLDER'),
+    });
 }
 
 1;
