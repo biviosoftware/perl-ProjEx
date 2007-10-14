@@ -54,14 +54,13 @@ sub merge_overrides {
 	    critical_list => [
 	    ],
 	}),
-    }, {
-	$proto->default_merge_overrides({
-	    version => 1,
-	    root => 'ProjEx',
-	    prefix => 'projex',
-	    owner => 'COPYRIGHT-HOLDER',
-	}),
-    });
+    },
+    $proto->default_merge_overrides({
+	version => 2,
+	root => 'ProjEx',
+	prefix => 'projex',
+	owner => 'COPYRIGHT-HOLDER',
+    }));
 }
 
 1;
