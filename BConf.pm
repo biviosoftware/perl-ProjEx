@@ -56,7 +56,7 @@ sub merge_overrides {
 	}),
     },
     $proto->default_merge_overrides({
-	version => 2,
+	version => 4,
 	root => 'ProjEx',
 	prefix => 'projex',
 	owner => 'COPYRIGHT-HOLDER',
