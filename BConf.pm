@@ -32,19 +32,19 @@ sub merge_overrides {
 		View => ['ProjEx::View'],
 	    },
 	}),
-	'Bivio::UI::Facade' => {
-	    default => 'ProjEx',
-	    http_suffix => 'www.PROD-DOMAIN',
-	    mail_host => 'PROD-DOMAIN',
-	},
-	'Bivio::Test::Language::HTTP' => {
-	    deprecated_text_patterns => 0,
+	'Bivio::Biz::Model::MailReceiveDispatchForm' => {
+	    ignore_dashes_in_recipient => 1,
 	},
 	'Bivio::Test::HTMLParser::Forms' => {
 	    error_class => 'field_err',
 	},
-	'Bivio::Biz::Model::MailReceiveDispatchForm' => {
-	    ignore_dashes_in_recipient => 1,
+	'Bivio::Test::Language::HTTP' => {
+	    deprecated_text_patterns => 0,
+	},
+	'Bivio::UI::Facade' => {
+	    default => 'ProjEx',
+	    http_suffix => 'www.PROD-DOMAIN',
+	    mail_host => 'PROD-DOMAIN',
 	},
 	$proto->merge_http_log({
 	    ignore_list => [
