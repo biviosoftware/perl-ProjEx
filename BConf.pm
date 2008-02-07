@@ -38,9 +38,6 @@ sub merge_overrides {
 	'Bivio::Test::HTMLParser::Forms' => {
 	    error_class => 'field_err',
 	},
-	'Bivio::Test::Language::HTTP' => {
-	    deprecated_text_patterns => 0,
-	},
 	'Bivio::UI::Facade' => {
 	    default => 'ProjEx',
 	    http_suffix => 'www.PROD-DOMAIN',
