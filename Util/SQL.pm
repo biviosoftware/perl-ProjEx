@@ -16,10 +16,10 @@ sub ddl_files {
 }
 
 sub initialize_db {
-    return shift->call_super_before(\@_, sub {
-        shift->new_other('SiteForum')->init;
-	return;
-    });
+    my($self) = shift;
+    my(@res) = $self->SUPER::initialize_db(@_);
+    $self->new_other('SiteForum')->init;
+    return @res;
 }
 
 sub initialize_test_data {
