@@ -32,12 +32,6 @@ sub merge_overrides {
 		View => ['ProjEx::View'],
 	    },
 	}),
-	'Bivio::Biz::Model::MailReceiveDispatchForm' => {
-	    ignore_dashes_in_recipient => 1,
-	},
-	'Bivio::Test::HTMLParser::Forms' => {
-	    error_class => 'field_err',
-	},
 	'Bivio::UI::Facade' => {
 	    default => 'ProjEx',
 	    http_suffix => 'www.PROD-DOMAIN',
@@ -53,7 +47,7 @@ sub merge_overrides {
 	}),
     },
     $proto->default_merge_overrides({
-	version => 4,
+	version => 5,
 	root => 'ProjEx',
 	prefix => 'projex',
 	owner => 'COPYRIGHT-HOLDER',
