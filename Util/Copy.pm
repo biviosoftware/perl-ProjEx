@@ -34,7 +34,7 @@ sub to {
     Bivio::IO::File->chdir("$ENV{HOME}/src/perl");
     $self->piped_exec('cvs update -Pd ProjEx Bivio/PetShop/files/ddl');
     Bivio::IO::File->mkdir_p($root);
-    my($year) = Bivio::Type::DateTime->now_as_year;
+    my($year) = b_use('Type.DateTime')->now_as_year;
     my($cvs) = [];
     File::Find::find({
 	wanted => sub {
@@ -43,7 +43,7 @@ sub to {
 	    (my $dst = $src) =~ s{(?:ProjEx|Bivio/PetShop)}{$root}g;
 	    $dst =~ s{projex}{$pfx}g;
 	    my($kb) = '';
-	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log/|httpd.*conf|Copy.pm|projex-copy|.*\~$|petshop-)} || -l $src) {
+	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log/|httpd.*conf|Copy.pm|projex-copy|.*\~$|petshop-|^db$|tmp$|WikiData$)} || -l $src) {
 		$File::Find::prune = 1;
 		return;
 	    }
