@@ -26,7 +26,7 @@ sub to {
 	unless $pfx =~ /^[a-z0-9]+$/;
     $uri ||= lc($root);
     $domain ||= "$uri.com";
-    $self->usage_error($uri, ': prefix must be all lower case, word')
+    $self->usage_error($uri, ': uri must be all lower case, word')
 	unless $uri =~ /^[-a-z0-9]+$/;
     $self->usage_error($domain, ': invalid domain name')
 	unless (Bivio::Type->get_instance('DomainName')
