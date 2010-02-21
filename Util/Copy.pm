@@ -43,7 +43,7 @@ sub to {
 	    (my $dst = $src) =~ s{(?:ProjEx|Bivio/PetShop)}{$root}g;
 	    $dst =~ s{projex}{$pfx}g;
 	    my($kb) = '';
-	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log/|httpd.*conf|Copy.pm|projex-copy|.*\~$|petshop-|^db$|tmp$|WikiData$)} || -l $src) {
+	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log/|httpd.*conf|Copy.pm|projex-copy|.*\~$|db$|tmp$|WikiData$)} || -l $src) {
 		$File::Find::prune = 1;
 		return;
 	    }
@@ -67,7 +67,7 @@ sub to {
 	    return;
 	},
 	no_chdir => 1,
-    }, 'ProjEx', 'Bivio/PetShop/files/ddl');
+    }, 'ProjEx');
     Bivio::IO::File->write("$ENV{HOME}/bconf/$pfx.bconf", <<"EOF");
 use strict;
 use ${root}::BConf;
