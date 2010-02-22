@@ -12,6 +12,7 @@ my($_SELF) = __PACKAGE__->new({
     mail_host => 'PROD-DOMAIN',
     Constant => [
 	[ThreePartPage_want_ForumDropDown => 1],
+	[ThreePartPage_want_dock_left_standard => 1],
     ],
     Text => [
 	[site_name => q{COPYRIGHT-HOLDER}],
