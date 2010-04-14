@@ -9,7 +9,7 @@ submit_form({
     email => $e,
 });
 follow_link_in_mail($e, 'register');
-submit_form(Update => {
+submit_form({
     '^new' => 'password',
     '^re' => 'password',
 });
