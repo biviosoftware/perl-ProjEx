@@ -26,4 +26,5 @@ submit_form({
     email => $e,
     pass => 'password',
 });
-verify_text('logout');
+verify_link('logout');
+
