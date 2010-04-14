@@ -2,7 +2,7 @@
 # $Id$
 package ProjEx::Delegate::TypeError;
 use strict;
-use Bivio::Base 'Bivio::Delegate::SimpleTypeError';
+use Bivio::Base 'Delegate.SimpleTypeError';
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
