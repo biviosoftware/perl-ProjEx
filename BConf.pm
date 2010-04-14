@@ -24,6 +24,7 @@ sub merge_overrides {
 	    },
 	    maps => {
 		Action => ['ProjEx::Action'],
+		Delegate => ['ProjEx::Delegate'],
 		Facade => ['ProjEx::Facade'],
 		Model => ['ProjEx::Model'],
 		ShellUtil => ['ProjEx::Util'],
