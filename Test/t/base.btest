@@ -2,7 +2,7 @@
 # $Id$
 test_setup('ProjEx');
 home_page();
-verify_no_link('Login');
+verify_no_link('login');
 follow_menu_link('register');
 my($e) = generate_local_email(test_name() . $$);
 submit_form({
