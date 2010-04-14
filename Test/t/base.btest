@@ -3,26 +3,27 @@
 test_setup('ProjEx');
 home_page();
 verify_no_link('Login');
-follow_link('Register');
+follow_menu_link('register');
 my($e) = generate_local_email(test_name() . $$);
-submit_form(Register => {qr{email}i => $e});
-visit_uri(verify_local_mail($e, 'register') =~ /(http:.+\?.+)/m);
-submit_form(Update => {
-    qr{^New} => 'password',
-    qr{^Re-enter} => 'password',
+submit_form({
+    email => $e,
 });
-follow_link(qr{logout}i);
-follow_link(qr{login}i);
+follow_link_in_mail($e, 'register');
+submit_form(Update => {
+    '^new' => 'password',
+    '^re' => 'password',
+});
+follow_menu_link(qw(logout login));
 save_excursion(sub {
     test_deviance('not found');
-    submit_form(Login => {
-	qr{email}i => 'no_such_email@nowhere.com',
-	qr{password}i => 'password',
+    submit_form({
+	email => 'no_such_email@nowhere.com',
+	pass => 'password',
     });
     test_conformance();
 });
-submit_form(Login => {
-    qr{email}i => $e,
-    qr{password}i => 'password',
+submit_form({
+    email => $e,
+    pass => 'password',
 });
-verify_text('Here is the first paragraph');
+verify_text('logout');
