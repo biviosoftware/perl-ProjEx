@@ -31,8 +31,10 @@ sub to {
     $self->usage_error($domain, ': invalid domain name')
 	unless (Bivio::Type->get_instance('DomainName')
 	->from_literal($domain))[0];
-    Bivio::IO::File->chdir("$ENV{HOME}/src/perl");
-    $self->piped_exec('cvs update -Pd ProjEx Bivio/PetShop/files/ddl');
+    my($perllib) = _match(__FILE__, '/ProjEx/Util/Copy.pm');
+    Bivio::IO::File->chdir($perllib);
+    $self->piped_exec('cvs update -Pd ProjEx Bivio/PetShop/files/ddl')
+	if $ENV{CVSROOT};
     Bivio::IO::File->mkdir_p($root);
     my($year) = b_use('Type.DateTime')->now_as_year;
     my($cvs) = [];
@@ -68,20 +70,29 @@ sub to {
 	},
 	no_chdir => 1,
     }, 'ProjEx');
-    Bivio::IO::File->write("$ENV{HOME}/bconf/$pfx.bconf", <<"EOF");
+    my($dir) = _match(b_use('IO.Config')->bconf_file, '/.+?\.bconf');
+    Bivio::IO::File->write("$dir/$pfx.bconf", <<"EOF");
 use strict;
 use ${root}::BConf;
 ${root}::BConf->dev(8888, {
     'Bivio::UI::Facade' => {
-	local_file_root => '$ENV{HOME}/src/perl/${root}/files/',
+	local_file_root => '$perllib/${root}/files/',
     },
 });
 EOF
     symlink('.', "$root/files/$uri");
-    foreach my $c (sort(@$cvs)) {
-	$self->piped_exec($c);
+    if ($ENV{CVS}) {
+	foreach my $c (sort(@$cvs)) {
+	    $self->piped_exec($c);
+	}
     }
     return;
+}
+
+sub _match {
+    my($value, $suffix) = @_;
+    my($re) = qr{(.+)$suffix$};
+    return ($value =~ $re)[0] || b_die($value, ': does not match ', $re);
 }
 
 1;
