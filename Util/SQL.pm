@@ -23,10 +23,10 @@ sub initialize_db {
 }
 
 sub initialize_test_data {
-    return shift->call_super_before(\@_, sub {
-        shift->new_other('TestUser')->init;
-	return;
-    });
+    my($self) = @_;
+    my(@res) = shift->SUPER::initialize_test_data(@_);
+    $self->new_other('TestUser')->init;
+    return @res;
 }
 
 1;
