@@ -1,7 +1,0 @@
-#!perl -w
-# Copyright (c) COPYRIGHT-YEAR COPYRIGHT-HOLDER  All Rights Reserved.
-# $Id$
-use strict;
-use ProjEx::Util::SQL;
-
-ProjEx::Util::SQL->main(@ARGV);
