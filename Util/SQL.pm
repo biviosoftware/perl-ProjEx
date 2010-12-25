@@ -4,11 +4,6 @@ package ProjEx::Util::SQL;
 use strict;
 use Bivio::Base 'ShellUtil';
 
-# export BCONF=~/bconf/projex.bconf
-# cd files/ddl
-# perl -w ../../Util/projex-sql init_dbms
-# perl -w ../../Util/projex-sql create_test_db
-
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub ddl_files {
