@@ -16,12 +16,10 @@ sub merge_overrides {
     my($proto, $host) = @_;
     return Bivio::IO::Config->merge_list({
 	$proto->merge_class_loader({
-	    delegates => {
-		'Bivio::Agent::HTTP::Cookie' => 'Bivio::Delegate::Cookie',
-		'Bivio::Agent::TaskId' => 'ProjEx::Delegate::TaskId',
-		'Bivio::Auth::Support' => 'Bivio::Delegate::SimpleAuthSupport',
-		'Bivio::TypeError' => 'ProjEx::Delegate::TypeError',
-	    },
+	    delegates => [
+		'Bivio::Agent::TaskId',
+		'Bivio::TypeError',
+	    ],
 	    maps => {
 		Action => ['ProjEx::Action'],
 		Delegate => ['ProjEx::Delegate'],
