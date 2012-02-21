@@ -36,7 +36,7 @@ sub merge_overrides {
 		http_suffix => 'www.PROD-DOMAIN',
 		mail_host => 'PROD-DOMAIN',
 	    },
-	    $proto->merge_http_log(
+	    $proto->merge_http_log({
 		ignore_list => [
 		],
 		error_list => [
