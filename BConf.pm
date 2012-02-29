@@ -33,7 +33,7 @@ sub merge_overrides {
 	    }),
 	    'Bivio::UI::Facade' => {
 		default => 'ProjEx',
-		http_suffix => 'www.PROD-DOMAIN',
+		http_host => 'www.PROD-DOMAIN',
 		mail_host => 'PROD-DOMAIN',
 	    },
 	    $proto->merge_http_log({
