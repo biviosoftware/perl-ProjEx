@@ -6,10 +6,11 @@ use Bivio::Base 'UI.FacadeBase';
 
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
-my($_SELF) = __PACKAGE__->new({
+__PACKAGE__->new({
     uri => 'FACADE-URI',
     http_host => 'www.PROD-DOMAIN',
     mail_host => 'PROD-DOMAIN',
+    is_production => 1,
     Constant => [
 	[ThreePartPage_want_ForumDropDown => 1],
 	[ThreePartPage_want_dock_left_standard => 1],
