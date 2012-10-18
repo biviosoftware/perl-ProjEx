@@ -8,7 +8,7 @@ use Bivio::UI::ViewLanguageAUTOLOAD;
 our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub VIEW_SHORTCUTS {
-    return 'ProjEx::ViewShortcuts';
+    return 'UIXHTML.ViewShortcuts';
 }
 
 1;
