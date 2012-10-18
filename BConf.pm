@@ -28,6 +28,8 @@ sub merge_overrides {
 		    ShellUtil => ['ProjEx::Util'],
 		    TestLanguage => ['ProjEx::Test'],
 		    Type => ['ProjEx::Type'],
+		    UI => ['ProjEx::UI'],
+		    UIXHTML => ['NormForge::UIXHTML', 'Bivio::UI::XHTML', 'ProjEx::UI'],
 		    View => ['ProjEx::View'],
 		},
 	    }),
