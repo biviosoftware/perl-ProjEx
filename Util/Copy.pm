@@ -70,16 +70,6 @@ sub to {
 	},
 	no_chdir => 1,
     }, 'ProjEx');
-    my($dir) = _match(b_use('IO.Config')->bconf_file, '/.+?\.bconf');
-    Bivio::IO::File->write("$dir/$pfx.bconf", <<"EOF");
-use strict;
-use ${root}::BConf;
-${root}::BConf->dev(8888, {
-    'Bivio::UI::Facade' => {
-	local_file_root => '$perllib/${root}/files/',
-    },
-});
-EOF
     symlink('.', "$root/files/$uri");
     if ($ENV{CVS}) {
 	foreach my $c (sort(@$cvs)) {
