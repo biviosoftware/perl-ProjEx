@@ -24,7 +24,7 @@ sub merge_overrides {
 		    TestLanguage => ['ProjEx::Test'],
 		    Type => ['ProjEx::Type'],
 		    UI => ['ProjEx::UI'],
-		    UIXHTML => ['ProjEx::UIXHTML', 'Bivio::UI::XHTML', 'ProjEx::UI'],
+		    UIXHTML => ['ProjEx::UIXHTML', 'Bivio::UI::XHTML', 'Bivio::UI::HTML', 'ProjEx::UI'],
 		    View => ['ProjEx::View'],
 		},
 	    }),
