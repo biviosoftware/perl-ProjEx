@@ -19,7 +19,7 @@ EOF
 sub to {
     my($self, $root, $pfx, $legal, $uri, $domain) = @_;
     $self->usage_error($legal, ': expecting legal name which contains a space')
-	unless $legal =~ /\s/;
+	unless $legal && $legal =~ /\s/;
     $self->usage_error($root, ': root must begin with upper case')
 	unless $root =~ /^[A-Z]\w+$/;
     $self->usage_error($pfx, ': prefix must be all lower case')
