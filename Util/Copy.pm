@@ -6,7 +6,6 @@ use Bivio::Base 'Bivio::ShellUtil';
 use Bivio::IO::File;
 use File::Find ();
 
-our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub USAGE {
     return <<'EOF';

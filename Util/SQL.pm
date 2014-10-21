@@ -4,7 +4,6 @@ package ProjEx::Util::SQL;
 use strict;
 use Bivio::Base 'ShellUtil';
 
-our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 sub ddl_files {
     return shift->SUPER::ddl_files(['bOP', 'projex']);

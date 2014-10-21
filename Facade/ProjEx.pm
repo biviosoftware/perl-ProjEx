@@ -4,7 +4,6 @@ package ProjEx::Facade::ProjEx;
 use strict;
 use Bivio::Base 'UI.FacadeBase';
 
-our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 __PACKAGE__->new({
     uri => 'FACADE-URI',

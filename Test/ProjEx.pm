@@ -4,6 +4,5 @@ package ProjEx::Test::ProjEx;
 use strict;
 use Bivio::Base 'TestLanguage.HTTP';
 
-our($VERSION) = sprintf('%d.%02d', q$Revision$ =~ /\d+/g);
 
 1;
