@@ -32,16 +32,14 @@ sub to {
 	->from_literal($domain))[0];
     my($perllib) = _match(__FILE__, '/ProjEx/Util/Copy.pm');
     Bivio::IO::File->chdir($perllib);
-    $self->piped_exec('cvs update -Pd ProjEx Bivio/PetShop/files/ddl')
-	if $ENV{CVSROOT};
     Bivio::IO::File->mkdir_p($root);
     my($year) = b_use('Type.DateTime')->now_as_year;
-    my($cvs) = [];
     File::Find::find({
 	wanted => sub {
 	    my($src) = $File::Find::name;
 	    next if $_ eq '.';
-	    (my $dst = $src) =~ s{(?:ProjEx|Bivio/PetShop)}{$root}g;
+	    (my $dst = $src) =~ s{ProjEx}{$root}g;
+	    $dst =~ s{projuri}{$uri}g;
 	    $dst =~ s{projex}{$pfx}g;
 	    my($kb) = '';
 	    if ($src =~ m{(?:^|/)(?:CVS|.*\.old|old|httpd\.pid|.*\.log|log/|httpd.*conf|Copy.pm|projex-copy|.*\~$|db$|tmp$|WikiData$)} || -l $src) {
@@ -63,18 +61,10 @@ sub to {
 		}
 		Bivio::IO::File->write($dst, $data);
 	    }
-	    push(@$cvs, "cvs add $kb $dst")
-		unless grep(/ \Q$dst\E$/, @$cvs);
 	    return;
 	},
 	no_chdir => 1,
     }, 'ProjEx');
-    symlink('.', "$root/files/$uri");
-    if ($ENV{CVS}) {
-	foreach my $c (sort(@$cvs)) {
-	    $self->piped_exec($c);
-	}
-    }
     return;
 }
 
