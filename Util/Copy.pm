@@ -46,7 +46,9 @@ sub to {
 	    $dst =~ s{projuri}{$uri}g;
 	    $dst =~ s{projex}{$pfx}g;
 	    my($kb) = '';
-	    if ($src =~ m{(?:^|/)(?:$vc_re|.*\.old|old|httpd|.*log|Copy.pm|README.md|projex-copy|.*\~$|db|tmp|WikiData)$} || -l $src) {
+	    if ($src =~ m{(?:^|/)(?:$vc_re|.*\.old|old|httpd|.*log|Copy.pm|README.md|projex-copy|.*\~$|db|tmp|WikiData)$} || -l $src
+#TODO: the $vc_re should catch this case, but doesn't
+		|| $src =~ /\.git\b/) {
 		$File::Find::prune = 1;
 		return;
 	    }
