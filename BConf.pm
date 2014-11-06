@@ -4,6 +4,9 @@ package ProjEx::BConf;
 use strict;
 use base 'Bivio::BConf';
 
+sub IS_2014STYLE {
+    return 1;
+}
 
 sub merge_overrides {
     my($proto, $host) = @_;
@@ -22,8 +25,7 @@ sub merge_overrides {
 		    ShellUtil => ['ProjEx::Util'],
 		    TestLanguage => ['ProjEx::Test'],
 		    Type => ['ProjEx::Type'],
-		    UIXHTML => ['ProjEx::UIXHTML', 'Bivio::UI::Bootstrap', 'Bivio::UI::XHTML', 'Bivio::UI::HTML'],
-		    XHTMLWidget => ['Bivio::UI::Bootstrap::Widget', 'Bivio::UI::XHTML::Widget', 'Bivio::UI::HTML::Widget', 'Bivio::UI::Widget'],
+		    UIXHTML => ['ProjEx::UIXHTML'],
 		    View => ['ProjEx::View'],
 		},
 	    }),
@@ -31,7 +33,6 @@ sub merge_overrides {
 		default => 'ProjEx',
 		http_host => 'www.PROD-DOMAIN',
 		mail_host => 'PROD-DOMAIN',
-		is_2014style => 1,
 	    },
 	    $proto->merge_http_log({
 		ignore_list => [
